@@ -1,13 +1,21 @@
-from setuptools import setup
+import setuptools
 
-setup(
+with open('README.md', 'r') as fh:
+    long_description = fh.read()
+
+setuptools.setup(
     name='abel',
     version='0.0.1',
-    description='Machine learning components',
-    url='http://github.com/hunan-rostomyan/abel',
     author='Hunan Rostomyan',
     author_email='hunan131@gmail.com',
-    license='BSD 3-Clause',
-    packages=['abel'],
-    zip_safe=False
+    description='Machine learning components',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    url='https://github.com/hunan-rostomyan/abel',
+    packages=setuptools.find_packages(),
+    classifiers=(
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+    ),
 )
