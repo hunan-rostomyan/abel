@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='abel',
-    version='0.0.1',
+    version='0.0.2',
     author='Hunan Rostomyan',
     author_email='hunan131@gmail.com',
     description='Machine learning components',

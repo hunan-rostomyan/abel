@@ -1,4 +1,4 @@
-dist:
+build:
 	python3 setup.py sdist bdist_wheel
 
 upload:
@@ -9,3 +9,7 @@ install:
 
 test:
 	py.test --cov=abel --cov-report term-missing
+
+clean:
+	rm -rf dist
+	rm -rf build
