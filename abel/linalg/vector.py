@@ -17,10 +17,17 @@ class Vector:
     def __eq__(self, other):
         return self._contents == other._contents
 
+    def __neg__(self):
+        return self * -1
+
     def __add__(self, B):
         """Vector addition."""
         xs, ys = self._contents, B._contents
         return Vector([x + ys[i] for i, x in enumerate(xs)])
+
+    def __sub__(self, B):
+        """Vector subtraction."""
+        return self + -B
 
     def __mul__(self, k):
         """Scalar multiplication."""

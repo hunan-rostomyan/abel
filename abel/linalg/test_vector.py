@@ -13,6 +13,13 @@ def test_add():
     assert a + b == Vector([4, 6])
     assert b + b == Vector([6, 8])
 
+def test_neg():
+    assert -a == -1 * a
+
+def test_sub():
+    assert a - b == a + (-b) == Vector([-2, -2])
+    assert b - a == b + (-a) == Vector([2, 2])
+
 def test_scal_mult():
     assert a * 5 == Vector([5, 10])
     assert 5 * a == Vector([5, 10])
