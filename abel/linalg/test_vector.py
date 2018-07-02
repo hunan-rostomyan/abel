@@ -24,6 +24,9 @@ def test_scal_mult():
     assert a * 5 == Vector([5, 10])
     assert 5 * a == Vector([5, 10])
 
+def test_scal_div():
+    assert a / 2 == Vector([0.5, 1.0])
+
 def test_matmul():
     assert a @ b == 11
     assert b @ a == a @ b
@@ -52,3 +55,17 @@ def test_scalproj():
 def test_cross():
     A, B = Vector([1, 2, 3]), Vector([4, 5, 6])
     assert Vector.cross(A, B) == Vector([-3, 6, -3])
+
+def test_average():
+    assert Vector.average(Vector([2, 1]), Vector([4, 2])) == Vector([3.0, 1.5])
+
+def test_collinear():
+    assert Vector.collinear(Vector([2, 1]), Vector([4, 2]))
+    assert Vector.collinear(Vector([-3, 4, 1]), Vector([-15, 20, 5]))
+    assert not Vector.collinear(Vector([0, 1]), Vector([1, 0]))
+
+def test_linindep():
+    assert Vector.linindep(Vector([0, 1]), Vector([1, 0]))
+    assert Vector.linindep(Vector([1, 1]), Vector([2, 1]))
+    assert not Vector.linindep(
+        Vector([1, 2, 3]), Vector([0, 0, 1]), Vector([0, 0, 2]))

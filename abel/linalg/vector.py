@@ -36,6 +36,10 @@ class Vector:
     def __rmul__(self, k):
         return self * k
 
+    def __truediv__(self, k):
+        """Scalar division."""
+        return self * (1 / k)
+
     def __matmul__(self, B):
         """Dot product."""
         xs, ys = self._contents, B._contents
@@ -70,3 +74,28 @@ class Vector:
             A_z * B_x - A_x * B_z,
             A_x * B_y - A_y * B_x
         ])
+
+    @staticmethod
+    def average(A, B):
+        """The average or arithmetic mean of A and B."""
+        return (A + B) / A.shape[1]
+
+    @staticmethod
+    def collinear(A, B):
+        """Whether two vectors are collinear."""
+        def find_n(A_cont, B_cont):
+            for a, b in zip(A_cont, B_cont):
+                if a != 0:
+                    return b / a
+                if b != 0:
+                    return a / b
+        n = find_n(A._contents, B._contents)
+        return (n * A == B) or (n * B == A)
+
+    @staticmethod
+    def linindep(*vs):
+        for i, v in enumerate(vs):
+            for j in range(i + 1, len(vs)):
+                if Vector.collinear(vs[i], vs[j]):
+                    return False
+        return True

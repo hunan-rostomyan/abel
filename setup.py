@@ -7,7 +7,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name='abel',
-    version='0.0.5',
+    version='0.0.6',
     author='Hunan Rostomyan',
     author_email='hunan131@gmail.com',
     description='Machine learning components',
